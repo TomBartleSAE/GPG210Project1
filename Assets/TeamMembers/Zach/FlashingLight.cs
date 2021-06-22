@@ -25,13 +25,13 @@ namespace Zach
             {
                 if (isServer)
                 {
-                    SetColourOfLight(Random.value, Random.value, Random.value);
+                    RpcSetColourOfLight(Random.value, Random.value, Random.value);
                 }
             }
         }
 
         [ClientRpc]
-        void SetColourOfLight(float r, float g, float b)
+        void RpcSetColourOfLight(float r, float g, float b)
         {
             //View
             light.color = new Color(r, g, b);
