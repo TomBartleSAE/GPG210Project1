@@ -2,18 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 
-public class MusicManager : MonoBehaviour
+public class MusicManager : NetworkBehaviour
 {
     public GameManager GameManager;
-    public void OnEnable()
+    
+
+    public override void OnStartServer()
     {
-        GameManager.StartGameEvent += StartMusic;
+        base.OnStartServer();
+        if (isServer)
+        {
+            GameManager.StartGameEvent += RpcStartMusic;
+        }
     }
 
-    private void StartMusic()
+    [ClientRpc]
+    private void RpcStartMusic()
     {
-        throw new NotImplementedException();
+        Debug.Log("Playing Music");
     }
     
 }
