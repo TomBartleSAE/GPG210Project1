@@ -9,16 +9,16 @@ public class SpawnManager : NetworkBehaviour
     public GameManager gameManager;
 
 
-    public void Awake()
+    public void OnEnable()
     {
         if (isServer)
         {
-            gameManager.StartGameEvent += RPCSpawnAsteroids;
+            gameManager.StartGameEvent += RpcSpawnAsteroids;
         }
     }
     
     [ClientRpc]
-    private void RPCSpawnAsteroids()
+    public void RpcSpawnAsteroids()
     {
         Debug.Log("Spawning Asteroids");
     }
