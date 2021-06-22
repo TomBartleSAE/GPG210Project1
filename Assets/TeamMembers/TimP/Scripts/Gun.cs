@@ -6,7 +6,7 @@ namespace Tim
 {
     public class Gun : MonoBehaviour
     {
-        
+        public GameObject bullet;
         // Start is called before the first frame update
         void Start()
         {
@@ -18,7 +18,7 @@ namespace Tim
         {
             if (Input.GetMouseButtonDown(0))
             {
-                
+                Instantiate(bullet);
             }
         }
         
