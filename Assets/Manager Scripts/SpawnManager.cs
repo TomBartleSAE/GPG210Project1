@@ -8,15 +8,17 @@ public class SpawnManager : NetworkBehaviour
 {
     public GameManager gameManager;
 
-
-    public void OnEnable()
+    //On start server works since it relies on the server starting and allows for the code to run properly 
+    public override void OnStartServer()
     {
+        base.OnStartServer();
+        
         if (isServer)
         {
             gameManager.StartGameEvent += RpcSpawnAsteroids;
         }
     }
-    
+
     [ClientRpc]
     public void RpcSpawnAsteroids()
     {
