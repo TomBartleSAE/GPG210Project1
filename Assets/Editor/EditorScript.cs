@@ -17,6 +17,16 @@ public class EditorScript : Editor
         {
             gameManager.Death();
         }
+
+        if (GUILayout.Button("Start Game"))
+        {
+            gameManager.StartGame();
+        }
+
+        if (GUILayout.Button("End Game"))
+        {
+            gameManager.EndGame();
+        }
     }
 
 }
