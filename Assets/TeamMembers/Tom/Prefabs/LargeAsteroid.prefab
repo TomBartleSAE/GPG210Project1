@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6145884478987287096}
   - component: {fileID: 7919487767568409750}
   - component: {fileID: 1146015234907066818}
+  - component: {fileID: -6750867495962012121}
   m_Layer: 0
   m_Name: LargeAsteroid
   m_TagString: Obstacle
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 89b6e719a49ae90478440d6fa5225737, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -126,7 +127,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91e55561071b654186154f0c93deb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smallAsteroids:
+  objectsToSpawn:
   - {fileID: 1267348316608027027, guid: d65fb43fe14c98d4b96e75ad7f468c94, type: 3}
   - {fileID: 1267348316608027027, guid: d65fb43fe14c98d4b96e75ad7f468c94, type: 3}
+--- !u!114 &-6750867495962012121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925022547887390108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b02f407def8826147bb671689d4e4daa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   spawnForce: 50
