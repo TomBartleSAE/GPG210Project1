@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 namespace Tim
 {
-    public class Gun : MonoBehaviour
+    public class Gun : NetworkBehaviour
     {
+        public Vector3 cPos;
         public GameObject bullet;
         // Start is called before the first frame update
         void Start()
@@ -16,9 +20,10 @@ namespace Tim
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            cPos = transform.localPosition;
+            if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                Instantiate(bullet);
+                Instantiate(bullet,cPos,transform.rotation);
             }
         }
         
