@@ -17,15 +17,33 @@ namespace Tim
             
         }
 
-        // Update is called once per frame
+        
         void Update()
         {
             cPos = transform.localPosition;
+            ClientStuff();
+        }
+
+        void ClientStuff()
+        {
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                Instantiate(bullet,cPos,transform.rotation);
+                CmdRequestShoot();
             }
         }
         
+        [Command(requiresAuthority = false)]
+        void CmdRequestShoot()
+        {
+            GameObject bulletInstantiate = Instantiate(bullet,cPos,transform.rotation);
+            NetworkServer.Spawn(bulletInstantiate);
+            //RpcShoot();
+        }
+
+        [ClientRpc]
+        void RpcShoot()
+        {
+            
+        }
     }
 }
