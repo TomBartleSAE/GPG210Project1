@@ -2,7 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UFO : MonoBehaviour
+namespace Tom
 {
-    
+    public class UFO : MonoBehaviour
+    {
+        public StateBase flyingState, shootingState, deadState;
+        
+        
+    }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,11 @@ namespace Tom
             currentState.Exit();
             currentState = newState;
             currentState.Enter();
+        }
+
+        private void Update()
+        {
+            currentState.Execute();
         }
     }
 }
