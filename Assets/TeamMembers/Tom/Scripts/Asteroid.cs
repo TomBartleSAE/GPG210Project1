@@ -32,5 +32,20 @@ namespace Tom
                 Destroy(gameObject);
             }
         }
+
+        private void OnEnable()
+        {
+            GetComponent<Health>().OnDeath += AsteroidExplosion;
+        }
+
+        private void OnDisable()
+        {
+            GetComponent<Health>().OnDeath -= AsteroidExplosion;
+        }
+
+        private void AsteroidExplosion()
+        {
+            print("Destroyed");
+        }
     }
 }
