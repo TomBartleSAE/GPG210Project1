@@ -7,7 +7,8 @@ namespace Tom
     public class FlyingState : StateBase
     {
         public Vector3 targetPosition;
-        public float flyingSpeed;
+        public float flyingSpeed = 5f;
+        public bool entered = false;
     
         public override void Enter()
         {
@@ -15,6 +16,18 @@ namespace Tom
             print("Start flying");
 
             // Assign target position
+            // HACK?
+            if (!entered)
+            {
+                targetPosition = new Vector3(Random.Range(-1f,1f),0,Random.Range(-1f,1f));
+            }
+            else
+            {
+                Vector3 exitDirection = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized;
+                exitDirection *= 100f;
+                targetPosition = exitDirection;
+            }
+
             // Play spawn sound
         }
 
@@ -33,8 +46,8 @@ namespace Tom
             base.Exit();
         
             print("Stop flying");
-        
-            // Stop moving
+
+            entered = true;
             // Play stopping sound
         }
     }
