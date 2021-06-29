@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,20 +12,33 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        zachsPlayerActions = new ZachsPlayerActions();
+        /*zachsPlayerActions = new ZachsPlayerActions();
         zachsPlayerActions.Enable();
         
         zachsPlayerActions.Main.Move.performed += Movement;
-        zachsPlayerActions.Main.Rotate.performed += RotateOnPerformed;
+        zachsPlayerActions.Main.Rotate.performed += RotateOnPerformed;*/
     }
 
-    
-
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        if (Keyboard.current.wKey.isPressed)
+        {
+            rigidBody.AddRelativeForce(new Vector3(40,0,0));
+        }
+        if (Keyboard.current.sKey.isPressed)
+        {
+            rigidBody.AddRelativeForce(new Vector3(-40,0,0));
+        }
+        if (Keyboard.current.aKey.isPressed)
+        {
+            transform.Rotate(new Vector3(0,-5,0));
+        }
+        if (Keyboard.current.dKey.isPressed)
+        {
+            transform.Rotate(new Vector3(0,5,0));
+        }
     }
+
 
     void Movement(InputAction.CallbackContext obj)
     {
@@ -34,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void RotateOnPerformed(InputAction.CallbackContext obj)
     {
-        rigidBody.AddRelativeTorque(new Vector3(0,5*obj.ReadValue<float>(),0));
+        //rigidBody.AddRelativeTorque(new Vector3(0,5*obj.ReadValue<float>(),0));
+        transform.Rotate(new Vector3(0,15 * obj.ReadValue<float>(),0));
     }
 }
