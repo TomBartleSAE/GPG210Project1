@@ -11,14 +11,21 @@ namespace Tom
 
         public void ChangeState(StateBase newState)
         {
-            currentState.Exit(); // Exit previous state
+            if (currentState != null)
+            {
+                currentState.Exit(); // Exit previous state
+            }
+            
             currentState = newState; // Set current state to the new state
             currentState.Enter(); // Enter the new state
         }
 
         private void Update()
         {
-            currentState.Execute();
+            if (currentState != null)
+            {
+                currentState.Execute();
+            }
         }
     }
 }

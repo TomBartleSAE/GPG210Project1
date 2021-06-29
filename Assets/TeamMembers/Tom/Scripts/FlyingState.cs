@@ -6,7 +6,8 @@ namespace Tom
 {
     public class FlyingState : StateBase
     {
-        private Vector3 targetPosition;
+        public Vector3 targetPosition;
+        public float flyingSpeed;
     
         public override void Enter()
         {
@@ -20,9 +21,10 @@ namespace Tom
         public override void Execute()
         {
             base.Execute();
-        
+
             // Move ship toward target position
-            // Checking if ship has reached target position
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, flyingSpeed * Time.deltaTime);
+            
             // Play hovering sound
         }
 
