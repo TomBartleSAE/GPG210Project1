@@ -589,15 +589,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1671695591623482024, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.2801666
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1671695591623482024, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.44
+      value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 1671695591623482024, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1671695591623482024, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -627,6 +627,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1671695591623482025, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 8555276617790212978, guid: 39de46090c42700499781258ccd79cd1, type: 3}
     - target: {fileID: 1671695591623482025, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
       propertyPath: spawnPrefabs.Array.size
       value: 2
