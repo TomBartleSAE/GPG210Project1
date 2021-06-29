@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Tom
 {
-    [CustomEditor(typeof(StateBase), true)]
+    //[CustomEditor(typeof(StateBase), true)]
     public class StateBaseEditor : Editor
     {
         public override void OnInspectorGUI()

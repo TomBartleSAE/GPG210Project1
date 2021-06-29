@@ -11,7 +11,7 @@ namespace Tom
         [HideInInspector] public ShootingState shootingState; 
         [HideInInspector] public DeadState deadState;
 
-        private StateManager stateManager;
+        public StateManager stateManager;
 
         private void Start()
         {
@@ -22,17 +22,25 @@ namespace Tom
 
             // Set default state to flying
             stateManager = GetComponent<StateManager>();
-            stateManager.currentState = flyingState;
+            stateManager.ChangeState(flyingState);
         }
 
         private void Update()
         {
-            // HACK?
-            if (flyingState)
+            // HACK
+            // Would be better with transitions
+            if (stateManager.currentState == flyingState)
             {
-                if (transform.position == flyingState.targetPosition)
+                if (transform.position == flyingState.targetPosition && !flyingState.entered)
                 {
                     stateManager.ChangeState(shootingState);
+                }
+            }
+            if (stateManager.currentState == shootingState)
+            {
+                if (shootingState.shootingTimer <= 0)
+                {
+                    stateManager.ChangeState(flyingState);
                 }
             }
         }
