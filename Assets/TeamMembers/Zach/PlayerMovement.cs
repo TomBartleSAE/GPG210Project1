@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     public Rigidbody rigidBody;
     private ZachsPlayerActions zachsPlayerActions;
@@ -14,25 +15,29 @@ public class PlayerMovement : MonoBehaviour
     public float forwardFloat;
 
     // Start is called before the first frame update
-    void Start()
+    public override void OnStartLocalPlayer()
     {
+        base.OnStartLocalPlayer();
+
+        Debug.Log(isLocalPlayer);
         zachsPlayerActions = new ZachsPlayerActions();
         zachsPlayerActions.Enable();
-        
+
         zachsPlayerActions.Main.Move.started += Movement;
         zachsPlayerActions.Main.Move.canceled += Movement;
         zachsPlayerActions.Main.Rotate.started += RotateOnPerformed;
         zachsPlayerActions.Main.Rotate.canceled += RotateOnPerformed;
     }
 
-   
-
     public void FixedUpdate()
     {
-        rigidBody.velocity = transform.forward * speed * forwardFloat;
-        rigidBody.angularVelocity = rotateVelocity;
+        if (isLocalPlayer)
+        {
+           rigidBody.velocity = transform.forward * speed * forwardFloat;
+           rigidBody.angularVelocity = rotateVelocity;  
+        }
+       
     }
-
 
     void Movement(InputAction.CallbackContext obj)
     {

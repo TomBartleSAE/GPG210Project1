@@ -131,6 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 701f764bbb3de0e44b4d48e3cf0e6946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   rigidBody: {fileID: 3646838012092318782}
   rotateVelocity: {x: 0, y: 0, z: 0}
   speed: 10
@@ -198,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
+  clientAuthority: 1
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
