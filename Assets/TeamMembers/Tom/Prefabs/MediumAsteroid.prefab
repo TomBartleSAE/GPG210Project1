@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 578013086240947289}
   - component: {fileID: -6449695348142238942}
   - component: {fileID: -6457083729172412239}
+  - component: {fileID: -5766060039706612307}
   m_Layer: 0
   m_Name: MediumAsteroid
   m_TagString: Obstacle
@@ -129,6 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91e55561071b654186154f0c93deb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   objectsToSpawn:
   - {fileID: 1631056062608754842, guid: 0abfabe845ce3864881296dd9fee682a, type: 3}
   - {fileID: 1631056062608754842, guid: 0abfabe845ce3864881296dd9fee682a, type: 3}
@@ -160,6 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce1ab2ebaa10214bbe2babf0351d222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!114 &-6457083729172412239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,3 +177,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1d56ec5e5940e84b98cae0a96c2759f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5766060039706612307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267348316608027027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  localPositionSensitivity: 0.01
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
+  compressRotation: 0
+  interpolateScale: 1
+  interpolateRotation: 1
+  interpolatePosition: 1
+  syncScale: 1

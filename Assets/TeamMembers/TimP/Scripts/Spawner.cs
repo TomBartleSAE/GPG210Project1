@@ -4,6 +4,10 @@ using Mirror;
 using Tom;
 using UnityEngine;
 
+namespace Tim
+{
+    
+
 public class Spawner : NetworkBehaviour
 {
     public GameObject asteroid;
@@ -24,7 +28,13 @@ public class Spawner : NetworkBehaviour
     {
         base.OnStartServer();
         cPos = new Vector3(Random.Range(0,10), .5f, Random.Range(0,10));
-        GameObject asteroidSpawn = Instantiate(asteroid,cPos,transform.rotation);
+        this.asteroidSpawn(asteroid,cPos);
+    }
+
+    public void asteroidSpawn(GameObject aGame,Vector3 aSpawn)
+    {
+        GameObject asteroidSpawn = Instantiate(aGame, aSpawn, Quaternion.identity);
         NetworkServer.Spawn(asteroidSpawn);
     }
+}
 }

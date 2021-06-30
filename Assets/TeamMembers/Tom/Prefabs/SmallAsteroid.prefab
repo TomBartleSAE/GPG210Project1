@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3415518955441083611}
   - component: {fileID: 2443871894776741708}
   - component: {fileID: 233001676194106287}
+  - component: {fileID: 1603697131704838699}
   m_Layer: 0
   m_Name: SmallAsteroid
   m_TagString: Obstacle
@@ -143,6 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce1ab2ebaa10214bbe2babf0351d222, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!114 &233001676194106287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,3 +158,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1d56ec5e5940e84b98cae0a96c2759f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1603697131704838699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631056062608754842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  localPositionSensitivity: 0.01
+  localRotationSensitivity: 0.01
+  localScaleSensitivity: 0.01
+  compressRotation: 0
+  interpolateScale: 1
+  interpolateRotation: 1
+  interpolatePosition: 1
+  syncScale: 1
