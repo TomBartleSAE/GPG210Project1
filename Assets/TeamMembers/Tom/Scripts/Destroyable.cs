@@ -24,9 +24,9 @@ namespace Tom
         }
         
                 
-        private void OnCollisionEnter(Collision other)
+        private void OnTriggerEnter(Collider other)
         {
-            if (other.collider.GetComponent<Tim.Bullet>())
+            if (other.GetComponent<Tim.Bullet>())
             {
                 if (GetComponent<Health>())
                 {
