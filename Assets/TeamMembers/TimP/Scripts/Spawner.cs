@@ -27,7 +27,7 @@ public class Spawner : NetworkBehaviour
     public override void OnStartServer()
     {
         base.OnStartServer();
-        cPos = new Vector3(Random.Range(0,10), .5f, Random.Range(0,10));
+        cPos = new Vector3(transform.position.x+Random.Range(0,10), .5f, transform.position.z+Random.Range(0,10));
         this.asteroidSpawn(asteroid,cPos);
     }
 

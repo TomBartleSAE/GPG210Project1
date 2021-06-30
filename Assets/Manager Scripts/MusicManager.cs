@@ -13,7 +13,7 @@ public class MusicManager : NetworkBehaviour
 
     private void Start()
     {
-        health = FindObjectOfType<Health>();
+        
     }
 
     public override void OnStartServer()
@@ -21,6 +21,7 @@ public class MusicManager : NetworkBehaviour
         base.OnStartServer();
         if (isServer)
         {
+            health = FindObjectOfType<Health>();
             GameManager.StartGameEvent += RpcStartMusic;
             health.OnDeathEvent += RpcDeath;
         }
