@@ -20,7 +20,7 @@ namespace Tom
 
         private void Start()
         {
-            GetComponent<Rigidbody>().AddRelativeForce(transform.forward * spawnForce); // Push object forward when spawned
+            GetComponent<Rigidbody>().velocity = transform.forward * spawnForce; // Push object forward when spawned
         }
     }
 }

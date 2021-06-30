@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
@@ -5,6 +6,9 @@ using UnityEngine;
 
 public class Barrier : NetworkBehaviour
 {
+    public GameObject pairedBarrier;
+    public float offset = 1f;
+    
     public bool xTele;
     public bool zTele;
     // Start is called before the first frame update
@@ -26,5 +30,12 @@ public class Barrier : NetworkBehaviour
         {
             //teleport along z axis
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Offset allows for object to teleport in front of other barrier instead of inside it
+        float distance = Vector3.Distance(transform.position, pairedBarrier.transform.position) - offset;
+        other.transform.position += transform.forward * distance;
     }
 }
