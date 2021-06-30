@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7441863039880443344}
   - component: {fileID: 4797593782793777196}
   - component: {fileID: 7191893360470596897}
-  - component: {fileID: 7394874748038749068}
   m_Layer: 0
   m_Name: Cone
   m_TagString: Untagged
@@ -83,20 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7394874748038749068
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 602172484525318781}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3613567641014311022, guid: e865e64dab80dc44eb6d9216cb54c0e3, type: 3}
 --- !u!1 &4750456287374707206
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,6 +96,7 @@ GameObject:
   - component: {fileID: 3646838012092318782}
   - component: {fileID: 4510811002552964331}
   - component: {fileID: 2794310172388686771}
+  - component: {fileID: 3833415570179826150}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -147,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 3646838012092318782}
   rotateVelocity: {x: 0, y: 0, z: 0}
-  speed: 0
+  speed: 10
   forwardFloat: 0
 --- !u!114 &2895310348858715985
 MonoBehaviour:
@@ -179,7 +165,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &4510811002552964331
 MonoBehaviour:
@@ -221,6 +207,19 @@ MonoBehaviour:
   interpolateRotation: 1
   interpolatePosition: 1
   syncScale: 1
+--- !u!65 &3833415570179826150
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4750456287374707206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.005095, y: 0.5372947, z: 3.0121975}
+  m_Center: {x: 0.04632798, y: -0.23135266, z: -0.07925868}
 --- !u!1 &8758605871342104417
 GameObject:
   m_ObjectHideFlags: 0
