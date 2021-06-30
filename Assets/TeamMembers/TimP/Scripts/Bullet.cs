@@ -16,7 +16,7 @@ namespace Tim
      void Start()
      {
          rb = GetComponent<Rigidbody>();
-         rb.AddRelativeForce(new Vector3(100,0,0));
+         rb.AddForce(new Vector3(0,0,100));
      }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ namespace Tim
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    /*private void OnCollisionEnter(Collision other)
      {
          if (other.gameObject.CompareTag("Obstacle"))
          {
@@ -39,6 +39,18 @@ namespace Tim
          
          Debug.Log("Hit " + other.gameObject);
      }
+     */
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Hit Asteroid");
+            Destroy(gameObject);
+        }
+         
+        Debug.Log("Hit " + other.gameObject);
+    }
     }
 }
 
