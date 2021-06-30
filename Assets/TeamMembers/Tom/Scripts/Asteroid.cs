@@ -15,7 +15,7 @@ namespace Tom
             if (GetComponent<Health>() != null)
             {
                 health = GetComponent<Health>();
-                health.OnDeath += AsteroidExplosion;
+                health.OnDeathEvent += AsteroidExplosion;
             }
         }
 
@@ -23,7 +23,7 @@ namespace Tom
         {
             if (GetComponent<Health>() != null)
             {
-                health.OnDeath -= AsteroidExplosion;
+                health.OnDeathEvent -= AsteroidExplosion;
             }
         }
 

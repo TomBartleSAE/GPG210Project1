@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1344226940227417549}
   - component: {fileID: 578013086240947289}
   - component: {fileID: -6449695348142238942}
+  - component: {fileID: -6457083729172412239}
   m_Layer: 0
   m_Name: MediumAsteroid
   m_TagString: Obstacle
@@ -157,5 +158,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ce1ab2ebaa10214bbe2babf0351d222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6457083729172412239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267348316608027027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1d56ec5e5940e84b98cae0a96c2759f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

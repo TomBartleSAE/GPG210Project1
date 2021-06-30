@@ -16,6 +16,11 @@ namespace Tom
             {
                 ((Health)target).Die();
             }
+            
+            if (GUILayout.Button("Force Damage"))
+            {
+                ((Health)target).TakeDamage();
+            }
         }
     }
 }

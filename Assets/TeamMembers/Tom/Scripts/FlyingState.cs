@@ -17,6 +17,7 @@ namespace Tom
 
             // Assign target position
             // HACK?
+            // Entering and exiting state are identical except for the target position, so I've combined them rather than keeping them as separate states
             if (!entered)
             {
                 targetPosition = new Vector3(Random.Range(-1f,1f),0,Random.Range(-1f,1f));
@@ -36,6 +37,7 @@ namespace Tom
             base.Execute();
 
             // Move ship toward target position
+            // Use rigidbody MovePosition instead if you want physics collisions
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, flyingSpeed * Time.deltaTime);
             
             // Play hovering sound

@@ -7,11 +7,18 @@ namespace Tom
 {
     public class Health : MonoBehaviour
     {
-        public event Action OnDeath;
+        public event Action OnDeathEvent;
 
         public void Die()
         {
-            OnDeath?.Invoke();
+            OnDeathEvent?.Invoke();
+        }
+
+        public event Action TakeDamageEvent;
+
+        public void TakeDamage()
+        {
+            TakeDamageEvent?.Invoke();
         }
     }
 }

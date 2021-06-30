@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8691930271124050606}
   - component: {fileID: 3196886891263461192}
   - component: {fileID: 6890800442743242066}
+  - component: {fileID: -4933066311873249569}
   m_Layer: 0
   m_Name: Comet
   m_TagString: Obstacle
@@ -139,4 +140,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02f407def8826147bb671689d4e4daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   spawnForce: 250
+--- !u!114 &-4933066311873249569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850429377270696868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1d56ec5e5940e84b98cae0a96c2759f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
