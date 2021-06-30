@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  spawnForce: 50
+  spawnForce: 1
 --- !u!114 &6723765044798632663
 MonoBehaviour:
   m_ObjectHideFlags: 0

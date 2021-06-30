@@ -19,7 +19,7 @@ namespace Tom
             
             if (GUILayout.Button("Force Damage"))
             {
-                ((Health)target).TakeDamage();
+                ((Health)target).TakeDamage(1);
             }
         }
     }

@@ -15,11 +15,11 @@ namespace Tom
             OnDeathEvent?.Invoke();
         }
 
-        public event Action TakeDamageEvent;
+        public event Action<int> TakeDamageEvent;
 
-        public void TakeDamage()
+        public void TakeDamage(int damage)
         {
-            TakeDamageEvent?.Invoke();
+            TakeDamageEvent?.Invoke(damage);
         }
     }
 }
