@@ -28,9 +28,9 @@ public class @ZachsPlayerActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Rotate"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""25718d7f-ccf1-4522-b23c-396004a0b6e0"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
                 }

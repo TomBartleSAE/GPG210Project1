@@ -8,7 +8,10 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rigidBody;
     private ZachsPlayerActions zachsPlayerActions;
-    public Vector3 velocity;
+    public Vector3 rotateVelocity;
+    public float speed;
+
+    public float forwardFloat;
 
     // Start is called before the first frame update
     void Start()
@@ -17,34 +20,28 @@ public class PlayerMovement : MonoBehaviour
         zachsPlayerActions.Enable();
         
         zachsPlayerActions.Main.Move.started += Movement;
-        //zachsPlayerActions.Main.Move.performed += ResettingMovement;
+        zachsPlayerActions.Main.Move.canceled += Movement;
         zachsPlayerActions.Main.Rotate.started += RotateOnPerformed;
+        zachsPlayerActions.Main.Rotate.canceled += RotateOnPerformed;
     }
 
    
 
     public void FixedUpdate()
     {
-        rigidBody.velocity = velocity;
+        rigidBody.velocity = transform.forward * speed * forwardFloat;
+        rigidBody.angularVelocity = rotateVelocity;
     }
 
 
     void Movement(InputAction.CallbackContext obj)
     {
-        
-        velocity = new Vector3(100 * obj.ReadValue<float>(), 0, 0);
-        if (obj.phase == InputActionPhase.Canceled)
-        {
-            Debug.Log("Ending Movement");
-        }
+        //velocity = new Vector3(0, 0, speed * obj.ReadValue<float>());
+        forwardFloat = obj.ReadValue<float>();
     }
-    private void ResettingMovement(InputAction.CallbackContext obj)
-    {
-        velocity = new Vector3(0, 0, 0);
-    }
+   
     private void RotateOnPerformed(InputAction.CallbackContext obj)
     {
-        //rigidBody.AddRelativeTorque(new Vector3(0,5*obj.ReadValue<float>(),0));
-        transform.Rotate(new Vector3(0,15 * obj.ReadValue<float>(),0));
+        rotateVelocity = new Vector3(0, 15 * obj.ReadValue<float>(), 0);
     }
 }
