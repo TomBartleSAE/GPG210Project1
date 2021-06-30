@@ -33,7 +33,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-           rigidBody.velocity = transform.forward * speed * forwardFloat;
+           rigidBody.AddRelativeForce(transform.forward * speed * forwardFloat);
            rigidBody.angularVelocity = rotateVelocity;  
         }
        
