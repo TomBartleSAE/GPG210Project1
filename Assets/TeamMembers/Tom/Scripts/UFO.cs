@@ -28,7 +28,8 @@ namespace Tom
         private void Update()
         {
             // HACK
-            // Would be better with transitions
+            // This would be problematic if you had lots of states
+            // Consider changing transition conditions in each state
             if (stateManager.currentState == flyingState)
             {
                 if (transform.position == flyingState.targetPosition && !flyingState.entered)

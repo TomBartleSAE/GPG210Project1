@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
@@ -13,6 +14,18 @@ namespace Tom
         {
             base.OnStartServer();
             GetComponent<Rigidbody>().AddRelativeForce(transform.forward * spawnForce); // Push object forward when spawned
+        }
+        
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.collider.GetComponent<Tim.Bullet>())
+            {
+                if (GetComponent<Health>())
+                {
+                    GetComponent<Health>().Die();
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5710118599223971646}
   - component: {fileID: 8616327172617949584}
   - component: {fileID: 3415518955441083611}
+  - component: {fileID: 2443871894776741708}
   m_Layer: 0
   m_Name: SmallAsteroid
   m_TagString: Obstacle
@@ -126,4 +127,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b02f407def8826147bb671689d4e4daa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   spawnForce: 200
+--- !u!114 &2443871894776741708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631056062608754842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce1ab2ebaa10214bbe2babf0351d222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

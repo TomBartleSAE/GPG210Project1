@@ -8,6 +8,7 @@ namespace Tom
     public class ShootingState : StateBase
     {
         private float nextFire;
+        public float fireRate = 1f;
         public float shootingTimer = 5f;
         public GameObject bulletPrefab;
         
@@ -29,9 +30,9 @@ namespace Tom
             {
                 if (bulletPrefab != null)
                 {
-                    Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0,0, UnityEngine.Random.Range(0f,360f)));
+                    Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, UnityEngine.Random.Range(0f,360f), 0));
                 }
-                nextFire = 1f;
+                nextFire = 1 / fireRate;
             }
 
             shootingTimer -= Time.deltaTime;

@@ -6,9 +6,9 @@ namespace Tom
 {
     public class FlyingState : StateBase
     {
-        public Vector3 targetPosition;
+        [HideInInspector] public Vector3 targetPosition;
         public float flyingSpeed = 5f;
-        public bool entered = false;
+        [HideInInspector] public bool entered = false;
     
         public override void Enter()
         {
