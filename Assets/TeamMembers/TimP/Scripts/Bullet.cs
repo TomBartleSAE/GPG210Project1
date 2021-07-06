@@ -16,9 +16,9 @@ namespace Tim
      void Start()
      {
          rb = GetComponent<Rigidbody>();
-         rb.AddForce(new Vector3(0,0,100));
+         rb.AddRelativeForce(new Vector3(0,0,5), ForceMode.Impulse);
      }
-
+//check for local player, bigger bullets and shoot less often
     // Update is called once per frame
     private void FixedUpdate()
     {
