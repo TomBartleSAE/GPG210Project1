@@ -12,6 +12,7 @@ namespace Tim
         public Rigidbody rb;
         public GameObject Asteroid;
         public float dTimer;
+        public NetworkIdentity ownerIdentity;
     // Start is called before the first frame update
      void Start()
      {
@@ -48,7 +49,12 @@ namespace Tim
             Debug.Log("Hit Asteroid");
             Destroy(gameObject);
         }
-         
+
+        if (other.gameObject.GetComponent<NetworkIdentity>() != ownerIdentity && other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Hit Player");
+        }
+        
         Debug.Log("Hit " + other.gameObject);
     }
     }

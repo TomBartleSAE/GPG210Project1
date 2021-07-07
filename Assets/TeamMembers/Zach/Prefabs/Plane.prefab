@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 3833415570179826150}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   syncInterval: 0.1
   cPos: {x: 0, y: 0, z: 0}
   bullet: {fileID: 792759621431068195, guid: d3e6fc764a7409d45bea7e839ba1305d, type: 3}
+  playerIdentity: {fileID: 4510811002552964331}
 --- !u!54 &3646838012092318782
 Rigidbody:
   m_ObjectHideFlags: 0

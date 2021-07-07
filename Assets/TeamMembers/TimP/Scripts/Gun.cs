@@ -11,6 +11,7 @@ namespace Tim
     {
         public Vector3 cPos;
         public GameObject bullet;
+        public NetworkIdentity playerIdentity;
         // Start is called before the first frame update
         void Start()
         {
@@ -36,6 +37,7 @@ namespace Tim
         void CmdRequestShoot()
         {
             GameObject bulletInstantiate = Instantiate(bullet,cPos,transform.rotation);
+            bulletInstantiate.GetComponent<Bullet>().ownerIdentity = playerIdentity;
             NetworkServer.Spawn(bulletInstantiate);
             //RpcShoot();
         }
