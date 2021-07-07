@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Tom
 {
     public class MovingObstacle : NetworkBehaviour
     {
-        public float spawnForce; // Force applied when spawned
+        public float minSpawnForce, maxSpawnForce; // Force applied when spawned
+        
         
         /*
         public override void OnStartServer()
@@ -20,7 +22,7 @@ namespace Tom
 
         private void Start()
         {
-            GetComponent<Rigidbody>().velocity = transform.forward * spawnForce; // Push object forward when spawned
+            GetComponent<Rigidbody>().velocity = transform.forward * Random.Range(minSpawnForce, maxSpawnForce); // Push object forward when spawned
         }
     }
 }
