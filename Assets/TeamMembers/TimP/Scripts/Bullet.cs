@@ -48,6 +48,7 @@ namespace Tim
         {
             Debug.Log("Hit Asteroid");
             Destroy(gameObject);
+            other.GetComponent<Health>().CallDamageEvent(1);
         }
 
         if (other.gameObject.GetComponent<NetworkIdentity>() != ownerIdentity && other.gameObject.CompareTag("Player"))
