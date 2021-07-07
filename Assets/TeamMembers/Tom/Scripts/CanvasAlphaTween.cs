@@ -14,19 +14,16 @@ namespace Tom
         private CanvasGroup canvas;
     
         private float fadeValue;
-        private float target;
-        private float duration;
 
         private void Awake()
         {
             canvas = GetComponent<CanvasGroup>();
         }
 
-        public TweenerCore<float, float, FloatOptions> Fade(float startValue, float targetValue, float durationValue)
+        public TweenerCore<float, float, FloatOptions> Fade(float startValue, float target, float duration)
         {
             SetFade(startValue);
-            target = targetValue;
-            duration = durationValue;
+
             
             return DOTween.To(GetFade, SetFade, target, duration);
         }

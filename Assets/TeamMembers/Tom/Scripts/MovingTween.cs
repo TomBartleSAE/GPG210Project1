@@ -10,16 +10,12 @@ namespace Tom
     public class MovingTween : MonoBehaviour
     {
         private float positionValue;
-        private float target;
-        private float duration;
 
-        public TweenerCore<float, float, FloatOptions> Move(float startPos, float endPos, float durationValue)
+        public TweenerCore<float, float, FloatOptions> Move(float startPos, float endPos, float duration)
         {
             SetPosition(startPos);
-            target = endPos;
-            duration = durationValue;
             
-             return DOTween.To(GetPosition, SetPosition, target, duration);
+             return DOTween.To(GetPosition, SetPosition, endPos, duration);
         }
 
         private float GetPosition()
