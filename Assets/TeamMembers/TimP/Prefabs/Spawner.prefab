@@ -64,3 +64,4 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   asteroid: {fileID: 925022547887390108, guid: 7f24eb20bf943e94983b5d6301911b12, type: 3}
+  spawnManager: {fileID: 0}
