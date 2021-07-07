@@ -14,12 +14,12 @@ namespace Tom
 
             if (GUILayout.Button("Force Die"))
             {
-                ((Health)target).Die();
+                ((Health)target).CallDeathEvent();
             }
             
             if (GUILayout.Button("Force Damage"))
             {
-                ((Health)target).TakeDamage(1);
+                ((Health)target).CallDamageEvent(1);
             }
         }
     }

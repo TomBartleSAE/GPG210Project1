@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -6457083729172412239}
   - component: {fileID: -5766060039706612307}
   - component: {fileID: 2848469018109088412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MediumAsteroid
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 1551051388889926875}
   - component: {fileID: 345071038861957994}
   - component: {fileID: 3714359745469780988}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

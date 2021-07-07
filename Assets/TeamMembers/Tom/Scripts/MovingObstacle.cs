@@ -22,6 +22,7 @@ namespace Tom
 
         private void Start()
         {
+            transform.rotation = Quaternion.Euler(0, Random.Range(0,360), 0);
             GetComponent<Rigidbody>().velocity = transform.forward * Random.Range(minSpawnForce, maxSpawnForce); // Push object forward when spawned
         }
     }

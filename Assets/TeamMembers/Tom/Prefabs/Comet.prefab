@@ -15,13 +15,13 @@ GameObject:
   - component: {fileID: 6890800442743242066}
   - component: {fileID: -4933066311873249569}
   - component: {fileID: 6129920326662016111}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Comet
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5166426781509633260
 Transform:
   m_ObjectHideFlags: 0
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 1272162833738567981}
   - component: {fileID: 8034422926172377640}
   - component: {fileID: 7296833268401963726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

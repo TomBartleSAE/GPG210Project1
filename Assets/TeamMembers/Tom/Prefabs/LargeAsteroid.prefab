@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 430269319830402791}
   - component: {fileID: -9100820019078873154}
   - component: {fileID: -4010582553887430589}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LargeAsteroid
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  health: 1
+  health: 3
 --- !u!114 &-4010582553887430589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 5836907336090800740}
   - component: {fileID: 1438578565213927935}
   - component: {fileID: 2171982060366269695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

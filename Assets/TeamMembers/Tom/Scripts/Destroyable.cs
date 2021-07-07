@@ -22,16 +22,15 @@ namespace Tom
                 GetComponent<Health>().OnDeathEvent -= DestroySelf;
             }        
         }
-        
-                
+
+
         private void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<Tim.Bullet>())
+            // HACK
+            // Need a better way to find what objects damage others on collision
+            if (other.GetComponent<Health>())
             {
-                if (GetComponent<Health>())
-                {
-                    GetComponent<Health>().Die();
-                }
+                GetComponent<Health>().CallDamageEvent(1);
             }
         }
 

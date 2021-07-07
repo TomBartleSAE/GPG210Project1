@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 233001676194106287}
   - component: {fileID: 1603697131704838699}
   - component: {fileID: 2601935659389351107}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SmallAsteroid
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 4799991654841708166}
   - component: {fileID: 3517724632040235302}
   - component: {fileID: 7181038250836440851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
