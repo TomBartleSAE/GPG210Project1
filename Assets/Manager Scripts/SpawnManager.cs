@@ -7,6 +7,7 @@ using UnityEngine;
 public class SpawnManager : NetworkBehaviour
 {
     public GameManager gameManager;
+    public event Action SpawnObstacles; 
 
     //On start server works since it relies on the server starting and allows for the code to run properly 
     public override void OnStartServer()
@@ -23,6 +24,7 @@ public class SpawnManager : NetworkBehaviour
     public void RpcSpawnAsteroids()
     {
         Debug.Log("Spawning Asteroids");
+        SpawnObstacles?.Invoke();
     }
 }
  

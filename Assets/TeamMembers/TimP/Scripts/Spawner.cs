@@ -12,22 +12,19 @@ public class Spawner : NetworkBehaviour
 {
     public GameObject asteroid;
     private Vector3 cPos;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //cPos = new Vector3(Random.Range(0,10), Random.Range(0,10), 0);
-    }
+    public SpawnManager spawnManager;
 
     public override void OnStartServer()
     {
         base.OnStartServer();
+        spawnManager.SpawnObstacles += SpawnOnServerStart;
         cPos = new Vector3(transform.position.x+Random.Range(0,10), .5f, transform.position.z+Random.Range(0,10));
+        //this.asteroidSpawn(asteroid,cPos);
+    }
+
+    private void SpawnOnServerStart()
+    {
         this.asteroidSpawn(asteroid,cPos);
     }
 

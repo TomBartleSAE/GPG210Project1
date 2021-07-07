@@ -7,8 +7,6 @@ public class GameManager : MonoBehaviour
 {
     public event Action StartGameEvent; 
     
-    
-    
     public void Death()
     {
         print("You have died");
