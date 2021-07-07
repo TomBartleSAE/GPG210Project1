@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
-    public event Action StartGameEvent; 
+    public event Action StartGameEvent;
+    public AsteroidNetworkManager asteroidNetworkManager;
     
     public void Death()
     {
@@ -14,8 +16,11 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        StartGameEvent?.Invoke();
-        print("Game Start");
+        if (isServer)
+        {
+            StartGameEvent?.Invoke();
+            print("Game Start");
+        }
     }
 
     public void EndGame()

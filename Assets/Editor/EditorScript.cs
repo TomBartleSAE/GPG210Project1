@@ -9,7 +9,6 @@ public class EditorScript : Editor
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        DrawDefaultInspector();
 
         GameManager gameManager = (GameManager) target;
         
