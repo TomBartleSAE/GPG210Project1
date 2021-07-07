@@ -8,7 +8,13 @@ public class GameManager : NetworkBehaviour
 {
     public event Action StartGameEvent;
     public AsteroidNetworkManager asteroidNetworkManager;
-    
+
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+        asteroidNetworkManager.startingGameEvent += StartGame;
+    }
+
     public void Death()
     {
         print("You have died");

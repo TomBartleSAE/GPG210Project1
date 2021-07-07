@@ -22,6 +22,11 @@ public class EditorScript : Editor
             gameManager.StartGame();
         }
 
+        if (GUILayout.Button("OnStartServer"))
+        {
+            gameManager.OnStartServer();
+        }
+        
         if (GUILayout.Button("End Game"))
         {
             gameManager.EndGame();
