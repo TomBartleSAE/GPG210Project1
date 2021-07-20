@@ -12,6 +12,8 @@ namespace Tim
         public Vector3 cPos;
         public GameObject bullet;
         public NetworkIdentity playerIdentity;
+        public bool isShooting;
+        public float timeForShoot = .2f;
         // Start is called before the first frame update
         void Start()
         {
@@ -29,11 +31,30 @@ namespace Tim
         {
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
-                CmdRequestShoot();
+                //CmdRequestShoot();
+                //RpcShoot();
+                StartCoroutine(Firing());
             }
+            
+        }
+
+        IEnumerator Firing()
+        {
+            if (isShooting == false)
+            {
+                isShooting = true;
+                if (isShooting == true)
+                {
+                    
+                    yield return new WaitForSeconds(timeForShoot);
+                    CmdRequestShoot();
+                    isShooting = false;
+                }
+            }
+            
         }
         
-        [Command(requiresAuthority = false)]
+        [Command(requiresAuthority = true)]
         void CmdRequestShoot()
         {
             GameObject bulletInstantiate = Instantiate(bullet,cPos,transform.rotation);
@@ -45,7 +66,9 @@ namespace Tim
         [ClientRpc]
         void RpcShoot()
         {
-            
+            GameObject bulletInstantiate = Instantiate(bullet,cPos,transform.rotation);
+            bulletInstantiate.GetComponent<Bullet>().ownerIdentity = playerIdentity;
+            NetworkServer.Spawn(bulletInstantiate);
         }
     }
 }
