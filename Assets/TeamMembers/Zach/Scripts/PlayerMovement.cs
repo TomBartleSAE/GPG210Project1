@@ -11,6 +11,7 @@ public class PlayerMovement : NetworkBehaviour
     private ZachsPlayerActions zachsPlayerActions;
     public Vector3 rotateVelocity;
     public float speed;
+    public float maxSpeed;
 
     public float forwardFloat;
 
@@ -34,7 +35,11 @@ public class PlayerMovement : NetworkBehaviour
         if (isLocalPlayer)
         {
            rigidBody.AddRelativeForce(Vector3.forward * speed * forwardFloat);
-           rigidBody.angularVelocity = rotateVelocity;  
+           rigidBody.angularVelocity = rotateVelocity;
+           if (rigidBody.velocity.magnitude >= maxSpeed)
+           {
+               rigidBody.velocity = rigidBody.velocity.normalized * maxSpeed;
+           }
         }
        
     }
