@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
 namespace Tom
@@ -36,7 +37,8 @@ namespace Tom
 
         void DestroySelf()
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            NetworkServer.Destroy(gameObject);
         }
     }
 }
