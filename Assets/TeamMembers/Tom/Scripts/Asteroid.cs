@@ -39,7 +39,8 @@ namespace Tom
             foreach (GameObject asteroid in objectsToSpawn)
             { 
                 //aSpawner.asteroidSpawn(asteroid,transform.position);
-                Instantiate(asteroid, transform.position, Quaternion.identity);
+                GameObject newAsteroid = Instantiate(asteroid, transform.position, Quaternion.identity);
+                NetworkServer.Spawn(newAsteroid);
                 // Spawn each small asteroid, randomly rotate it on the Y-axis
             }
         }
