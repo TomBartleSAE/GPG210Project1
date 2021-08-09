@@ -9,25 +9,19 @@ namespace Tim
 {
     public class Gun : NetworkBehaviour
     {
-        public Vector3 cPos;
+        public Vector3 currentPos;
         public GameObject bullet;
         public NetworkIdentity playerIdentity;
         public bool isShooting;
         public float timeForShoot = .2f;
-        // Start is called before the first frame update
-        void Start()
-        {
-            
-        }
-
         
         void Update()
         {
-            cPos = transform.localPosition;
-            ClientStuff();
+            currentPos = transform.localPosition;
+            ClientShoot();
         }
-
-        void ClientStuff()
+        
+        void ClientShoot()
         {
             if (Mouse.current.leftButton.wasPressedThisFrame)
             {
@@ -57,7 +51,7 @@ namespace Tim
         [Command(requiresAuthority = true)]
         void CmdRequestShoot()
         {
-            GameObject bulletInstantiate = Instantiate(bullet,cPos,transform.rotation);
+            GameObject bulletInstantiate = Instantiate(bullet,currentPos,transform.rotation);
             bulletInstantiate.GetComponent<Bullet>().ownerIdentity = playerIdentity;
             NetworkServer.Spawn(bulletInstantiate);
             //RpcShoot();
@@ -66,7 +60,7 @@ namespace Tim
         [ClientRpc]
         void RpcShoot()
         {
-            GameObject bulletInstantiate = Instantiate(bullet,cPos,transform.rotation);
+            GameObject bulletInstantiate = Instantiate(bullet,currentPos,transform.rotation);
             bulletInstantiate.GetComponent<Bullet>().ownerIdentity = playerIdentity;
             NetworkServer.Spawn(bulletInstantiate);
         }

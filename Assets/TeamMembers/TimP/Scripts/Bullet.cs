@@ -41,7 +41,7 @@ namespace Tim
          Debug.Log("Hit " + other.gameObject);
      }
      */
-
+//change calldamageevent to takedamage
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Obstacle"))
@@ -53,7 +53,7 @@ namespace Tim
                 other.GetComponent<Health>().CallDamageEvent(1);
             }
         }
-
+//move to player
         if (other.gameObject.GetComponent<NetworkIdentity>() != ownerIdentity && other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Hit Player");

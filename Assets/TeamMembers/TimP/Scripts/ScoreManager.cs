@@ -8,20 +8,20 @@ public class ScoreManager : NetworkBehaviour
 {
     //public GameObject asteroids;
 
-    private Health health;
+    private Health[] health;
     // Start is called before the first frame update
-    void Start()
-    {
-       
-        
-    }
+   
     public override void OnStartServer()
     {
         base.OnStartServer();
         if (isServer)
         {
-            health = FindObjectOfType<Health>();
-            health.OnDeathEvent += RpcScore;
+            health = FindObjectsOfType<Health>();
+            foreach (Health h in health)
+            {
+                h.OnDeathEvent += RpcScore;
+            }
+            
         }
     }
 
