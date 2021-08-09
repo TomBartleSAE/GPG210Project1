@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
 namespace Tom
 {
-    public class UFO : MonoBehaviour
+    public class UFO : NetworkBehaviour
     {
         [HideInInspector] public FlyingState flyingState;
         [HideInInspector] public ShootingState shootingState; 

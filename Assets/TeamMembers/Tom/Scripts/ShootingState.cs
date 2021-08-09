@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using Random = System.Random;
 
@@ -30,7 +31,8 @@ namespace Tom
             {
                 if (bulletPrefab != null)
                 {
-                    Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, UnityEngine.Random.Range(0f,360f), 0));
+                    GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, UnityEngine.Random.Range(0f,360f), 0));
+                    NetworkServer.Spawn(newBullet);
                 }
                 nextFire = 1 / fireRate;
             }
