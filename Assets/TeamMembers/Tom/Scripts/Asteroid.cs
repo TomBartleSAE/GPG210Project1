@@ -11,7 +11,7 @@ namespace Tom
     {
         public GameObject[] objectsToSpawn; // Contains prefabs that spawn when object is destroyed, if any
         private Health health;
-        private Spawner aSpawner;
+        //private Spawner aSpawner;
         private void OnEnable()
         {
             if (GetComponent<Health>() != null)
@@ -20,9 +20,9 @@ namespace Tom
                 health.OnDeathEvent += AsteroidExplosion;
             }
 
-            if (FindObjectOfType<Spawner>() !=null)
+            //if (FindObjectOfType<Spawner>() !=null)
             {
-                aSpawner = FindObjectOfType<Spawner>().GetComponent<Spawner>();
+                //aSpawner = FindObjectOfType<Spawner>().GetComponent<Spawner>();
             }
         }
 
@@ -38,7 +38,8 @@ namespace Tom
         {
             foreach (GameObject asteroid in objectsToSpawn)
             { 
-                aSpawner.asteroidSpawn(asteroid,transform.position);
+                //aSpawner.asteroidSpawn(asteroid,transform.position);
+                Instantiate(asteroid, transform.position, Quaternion.identity);
                 // Spawn each small asteroid, randomly rotate it on the Y-axis
             }
         }
