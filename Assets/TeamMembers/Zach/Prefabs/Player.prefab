@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 3833415570179826150}
   - component: {fileID: -5742809989881062834}
   - component: {fileID: 7918547518836469497}
+  - component: {fileID: 4468879697490546958}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -139,6 +140,7 @@ MonoBehaviour:
   rigidBody: {fileID: 3646838012092318782}
   rotateVelocity: {x: 0, y: 0, z: 0}
   speed: 10
+  maxSpeed: 20
   forwardFloat: 0
 --- !u!114 &2895310348858715985
 MonoBehaviour:
@@ -157,6 +159,8 @@ MonoBehaviour:
   cPos: {x: 0, y: 0, z: 0}
   bullet: {fileID: 792759621431068195, guid: d3e6fc764a7409d45bea7e839ba1305d, type: 3}
   playerIdentity: {fileID: 4510811002552964331}
+  isShooting: 0
+  timeForShoot: 0.2
 --- !u!54 &3646838012092318782
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -273,6 +277,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1d56ec5e5940e84b98cae0a96c2759f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4468879697490546958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4750456287374707206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aeee88bb899dd144995cd000a492f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8758605871342104417
