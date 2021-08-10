@@ -57,8 +57,8 @@ MonoBehaviour:
   syncInterval: 0.1
   rigidBody: {fileID: 8026313728715386267}
   rotateVelocity: {x: 0, y: 0, z: 0}
-  speed: 8
-  maxSpeed: 10
+  speed: 10
+  maxSpeed: 20
   forwardFloat: 0
 --- !u!114 &7651548851491392371
 MonoBehaviour:
