@@ -11,7 +11,7 @@ public class AsteroidNetworkManager : NetworkManager
     public List<NetworkConnection> lobbyPlayers = new List<NetworkConnection>();
     
     [Header("Lobby")]
-    [SerializeField] private LobbyPlayer roomPlayerPrefab = null;
+    [SerializeField] public LobbyPlayer roomPlayerPrefab = null;
 
     public List<LobbyPlayer> lobbySlots = new List<LobbyPlayer>();
 
@@ -35,6 +35,19 @@ public class AsteroidNetworkManager : NetworkManager
         lobbyPlayers.Remove(roomPlayerPrefab.connectionToServer);
     }
 
+    public void SpawnPlane()
+    {
+        foreach (NetworkConnection player in lobbyPlayers)
+        {
+            Transform spawnPos = GetStartPosition();
+            GameObject playerInstance = spawnPos != null
+                ? Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation)
+                : Instantiate(playerPrefab);
+            NetworkServer.ReplacePlayerForConnection(player, playerInstance, true);
+        }
+    }
+    
+    
     public override void OnStartServer()
     {
         base.OnStartServer();
