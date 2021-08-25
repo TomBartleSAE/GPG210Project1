@@ -384,6 +384,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7377104541823972988, guid: bf7e2c50ada00e245abca3a876d37ec7, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 7377104541823972991, guid: bf7e2c50ada00e245abca3a876d37ec7, type: 3}
       propertyPath: sceneId
       value: 2255394484
@@ -392,6 +396,10 @@ PrefabInstance:
       propertyPath: m_AssetId
       value: bf7e2c50ada00e245abca3a876d37ec7
       objectReference: {fileID: 0}
+    - target: {fileID: 7377104542077451686, guid: bf7e2c50ada00e245abca3a876d37ec7, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 7377104542077451688, guid: bf7e2c50ada00e245abca3a876d37ec7, type: 3}
       propertyPath: sceneId
       value: 2357787920
@@ -688,6 +696,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7377104541702515387, guid: bf7e2c50ada00e245abca3a876d37ec7, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7377104541702515387, guid: bf7e2c50ada00e245abca3a876d37ec7, type: 3}
       propertyPath: m_Name
       value: Barrier Pair (2)
       objectReference: {fileID: 0}
@@ -735,6 +747,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7377104541823972988, guid: bf7e2c50ada00e245abca3a876d37ec7, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 7377104541823972989, guid: bf7e2c50ada00e245abca3a876d37ec7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -50
@@ -759,6 +775,10 @@ PrefabInstance:
       propertyPath: sceneId
       value: 3358894986
       objectReference: {fileID: 0}
+    - target: {fileID: 7377104542077451686, guid: bf7e2c50ada00e245abca3a876d37ec7, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 7377104542077451688, guid: bf7e2c50ada00e245abca3a876d37ec7, type: 3}
       propertyPath: sceneId
       value: 2385198236
@@ -1054,6 +1074,10 @@ PrefabInstance:
       propertyPath: playerPrefab
       value: 
       objectReference: {fileID: 4545368782067459426, guid: 884c14e394531644097a4c87c88b3370, type: 3}
+    - target: {fileID: 8701850274970503318, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
+      propertyPath: roomPlayerPrefab
+      value: 
+      objectReference: {fileID: 7867021811015254882, guid: ab5ae8cbb36309a4598026038d14940f, type: 3}
     - target: {fileID: 8701850274970503318, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
       propertyPath: spawnPrefabs.Array.size
       value: 4
