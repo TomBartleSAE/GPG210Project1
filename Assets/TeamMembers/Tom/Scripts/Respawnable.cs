@@ -21,14 +21,22 @@ public class Respawnable : MonoBehaviour
         {
             StartCoroutine(Respawn());
         }
+        else
+        {
+            // Destroy player
+        }
     }
 
     public IEnumerator Respawn()
     {
-        gameObject.SetActive(false);
+        GetComponent<Collider>().enabled = false;
+        GetComponentInChildren<MeshRenderer>().enabled = false;
         yield return new WaitForSeconds(respawnTime);
         transform.position = new Vector3(Random.Range(-40f, 40f), 0, Random.Range(-40f, 40f));
-        gameObject.SetActive(true);
+        health.SetInvincibility(2);
+        health.health = default;
+        GetComponent<Collider>().enabled = true;
+        GetComponentInChildren<MeshRenderer>().enabled = true;
     }
 
     private void OnEnable()
