@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ namespace Tom
     public class PlayerStats : MonoBehaviour
     {
         public Text nameText, livesText, scoreText;
+        public NetworkIdentity id;
+        public int currentScore = 0;
 
         public void SetName(string newName)
         {
@@ -21,7 +24,7 @@ namespace Tom
 
         public void SetScore(int newScore)
         {
-            nameText.text = newScore.ToString();
+            scoreText.text = newScore.ToString();
         }
     }
 }

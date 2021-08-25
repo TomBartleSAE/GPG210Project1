@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 430269319830402791}
   - component: {fileID: -9100820019078873154}
   - component: {fileID: -4010582553887430589}
+  - component: {fileID: -4861761212405239828}
   m_Layer: 6
   m_Name: LargeAsteroid
   m_TagString: Obstacle
@@ -156,6 +157,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   health: 3
+  lives: 3
 --- !u!114 &-4010582553887430589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +170,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1d56ec5e5940e84b98cae0a96c2759f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4861761212405239828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925022547887390108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d73b2711e04f447ae2e149b3f7752a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreValue: 1
 --- !u!1 &2108131977626584537
 GameObject:
   m_ObjectHideFlags: 0
