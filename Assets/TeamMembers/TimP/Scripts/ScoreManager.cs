@@ -7,10 +7,10 @@ using UnityEngine;
 
 public class ScoreManager : NetworkBehaviour
 {
-    public event Action<int,NetworkConnection> scoreEvent;
+    public event Action<int,NetworkIdentity> scoreEvent;
 
     [ClientRpc]
-    public void RpcScore(int score, NetworkConnection conn)
+    public void RpcScore(int score, NetworkIdentity conn)
     {
         Debug.Log("Adding Score");
         scoreEvent?.Invoke(score,conn);
