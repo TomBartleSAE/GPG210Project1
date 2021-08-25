@@ -9,6 +9,8 @@ namespace Tom
     public class Health : NetworkBehaviour
     {
         public int health = 1;
+        public int lives = 3;
+        private bool invincible = false;
         
         public event Action OnDeathEvent;
 
@@ -26,12 +28,23 @@ namespace Tom
 
         public void TakeDamage(int damage)
         {
-            health -= damage;
-
-            if (health <= 0)
+            if (!invincible)
             {
-                CallDeathEvent();
+                health -= damage;
+
+                if (health <= 0)
+                {
+                    lives--;
+                    CallDeathEvent();
+                }
             }
+        }
+
+        public IEnumerator SetInvincibility(float duration)
+        {
+            invincible = true;
+            yield return new WaitForSeconds(duration);
+            invincible = false;
         }
 
         private void OnEnable()

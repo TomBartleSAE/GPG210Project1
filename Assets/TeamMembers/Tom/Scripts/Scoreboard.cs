@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,19 +10,30 @@ namespace Tom
     public class Scoreboard : MonoBehaviour
     {
         public PlayerStats newPlayerStats;
-        
-        public void AddPlayer()
+        private GameManager gameManager;
+
+        private void Awake()
         {
-            PlayerStats newPlayer = Instantiate(newPlayerStats, transform);
-            
-            // Consider getting player number from a list of all player objects rather than child count
-            // Could also assign a colour to each player and pass the name of that colour here?
-            newPlayer.SetName("Player " + (transform.childCount - 1));
+            gameManager = FindObjectOfType<GameManager>();
+        }
+
+        public void SetupPlayers()
+        {
+            foreach (LobbyPlayer player in FindObjectOfType<AsteroidNetworkManager>().lobbySlots)
+            {
+                PlayerStats newPlayer = Instantiate(newPlayerStats, transform);
+                newPlayer.SetName(player.name);
+            }
         }
 
         private void OnEnable()
         {
-            //PlayerInputManager.PlayerJoinedEvent += AddPlayer;
+            gameManager.StartGameEvent += SetupPlayers;
+        }
+        
+        private void OnDisable()
+        {
+            gameManager.StartGameEvent -= SetupPlayers;
         }
     }
 }
