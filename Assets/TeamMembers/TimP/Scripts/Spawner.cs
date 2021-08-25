@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 namespace Tim
 {
     
-
+//todo fix asteroids not spawning in the same locations, get ufo to spawn, get score working, 
 public class Spawner : NetworkBehaviour
 {
     public GameObject asteroid;
@@ -29,7 +29,7 @@ public class Spawner : NetworkBehaviour
 
     private void SpawnOnServerStart()
     {
-        //this.asteroidSpawn(asteroid,cPos);
+        startSpawn = true;
         if (startSpawn == true)
         {
             StartCoroutine(asteroidSpawn(asteroid, cPos));
