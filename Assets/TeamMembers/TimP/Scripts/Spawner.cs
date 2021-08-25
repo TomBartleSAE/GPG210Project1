@@ -35,13 +35,6 @@ public class Spawner : NetworkBehaviour
             StartCoroutine(asteroidSpawn(asteroid, cPos));
         }
     }
-
-    /*public void asteroidSpawn(GameObject aGame,Vector3 aSpawn)
-      {
-        GameObject asteroidSpawn = Instantiate(aGame, aSpawn, Quaternion.identity);
-        NetworkServer.Spawn(asteroidSpawn);
-      }*/
-
     private void FixedUpdate()
     {
         if (startSpawn == true)

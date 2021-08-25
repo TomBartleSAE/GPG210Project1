@@ -13,14 +13,15 @@ namespace Tim
         public GameObject Asteroid;
         public float dTimer;
         public NetworkIdentity ownerIdentity;
-    // Start is called before the first frame update
+        private ScoreManager sm;
+        // Start is called before the first frame update
      void Start()
      {
          rb = GetComponent<Rigidbody>();
          rb.AddRelativeForce(new Vector3(0,0,5), ForceMode.Impulse);
+         sm = FindObjectOfType<ScoreManager>();
      }
-//check for local player, bigger bullets and shoot less often
-    // Update is called once per frame
+     // Update is called once per frame
     private void FixedUpdate()
     {
         dTimer = dTimer - Time.deltaTime;
@@ -29,19 +30,7 @@ namespace Tim
             Destroy(gameObject);
         }
     }
-
-    /*private void OnCollisionEnter(Collision other)
-     {
-         if (other.gameObject.CompareTag("Obstacle"))
-         {
-             Debug.Log("Hit Asteroid");
-             Destroy(gameObject);
-         }
-         
-         Debug.Log("Hit " + other.gameObject);
-     }
-     */
-//change calldamageevent to takedamage
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Obstacle"))
@@ -58,7 +47,12 @@ namespace Tim
         {
             Debug.Log("Hit Player");
         }
-        
+
+        if (other.GetComponent<ScoreGive>())
+        {
+            int score = other.GetComponent<ScoreGive>().GetScore();
+            sm.RpcScore(score,ownerIdentity.connectionToServer);
+        }
         Debug.Log("Hit " + other.gameObject);
     }
     }

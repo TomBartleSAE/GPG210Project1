@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
@@ -6,28 +7,13 @@ using UnityEngine;
 
 public class ScoreManager : NetworkBehaviour
 {
-    //public GameObject asteroids;
-
-    private Health[] health;
-    // Start is called before the first frame update
-   
-    public override void OnStartServer()
-    {
-        base.OnStartServer();
-        if (isServer)
-        {
-            health = FindObjectsOfType<Health>();
-            foreach (Health h in health)
-            {
-                h.OnDeathEvent += RpcScore;
-            }
-            
-        }
-    }
+    public event Action<int,NetworkConnection> scoreEvent;
 
     [ClientRpc]
-    private void RpcScore()
+    public void RpcScore(int score, NetworkConnection conn)
     {
         Debug.Log("Adding Score");
+        scoreEvent?.Invoke(score,conn);
     }
+    
 }
