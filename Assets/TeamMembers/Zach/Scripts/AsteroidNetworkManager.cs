@@ -12,6 +12,8 @@ public class AsteroidNetworkManager : NetworkManager
 
     public List<LobbyPlayer> lobbySlots = new List<LobbyPlayer>();
 
+    public List<NetworkIdentity> networkIdentities = new List<NetworkIdentity>();
+
     public LobbyUI lobbyUI;
     public event Action startingGameEvent;
 
@@ -51,6 +53,7 @@ public class AsteroidNetworkManager : NetworkManager
             GameObject playerInstance = spawnPos != null
                 ? Instantiate(playerPrefab, spawnPos.position, spawnPos.rotation)
                 : Instantiate(playerPrefab);
+            networkIdentities.Add(playerInstance.GetComponent<NetworkIdentity>());
             NetworkServer.ReplacePlayerForConnection(player, playerInstance, true);
         }
 
