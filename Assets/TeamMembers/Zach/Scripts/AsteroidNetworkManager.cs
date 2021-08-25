@@ -6,26 +6,34 @@ using UnityEngine;
 
 public class AsteroidNetworkManager : NetworkManager
 {
-    public event Action startingGameEvent;
-
     public List<NetworkConnection> lobbyPlayers = new List<NetworkConnection>();
-    
-    [Header("Lobby")]
-    [SerializeField] public LobbyPlayer roomPlayerPrefab = null;
+
+    [Header("Lobby")] [SerializeField] public LobbyPlayer roomPlayerPrefab;
 
     public List<LobbyPlayer> lobbySlots = new List<LobbyPlayer>();
+    public event Action startingGameEvent;
 
+    public LobbyUI lobbyUI;
+
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+        StartCoroutine(StartGameMode());
+        // startingGameEvent?.Invoke();
+    }
 
     public override void OnServerConnect(NetworkConnection conn)
     {
         //Base connecting to server code
         base.OnServerConnect(conn);
         lobbyPlayers.Add(conn);
-        
+
         //Lobby specific code
         LobbyPlayer lobbyPlayerInstance = Instantiate(roomPlayerPrefab);
         NetworkServer.AddPlayerForConnection(conn, lobbyPlayerInstance.gameObject);
         lobbySlots.Add(lobbyPlayerInstance);
+        lobbyPlayerInstance.name = conn.connectionId.ToString();
+        lobbyUI.UpdateUserPanel();
     }
 
     public override void OnServerDisconnect(NetworkConnection conn)
@@ -46,19 +54,12 @@ public class AsteroidNetworkManager : NetworkManager
             NetworkServer.ReplacePlayerForConnection(player, playerInstance, true);
         }
     }
-    
-    
-    public override void OnStartServer()
-    {
-        base.OnStartServer();
-        StartCoroutine(StartGameMode());
-        // startingGameEvent?.Invoke();
-    }
+
 
     public IEnumerator StartGameMode()
     {
         yield return new WaitForSeconds(0.5f);
-        
+
         startingGameEvent?.Invoke();
     }
 }

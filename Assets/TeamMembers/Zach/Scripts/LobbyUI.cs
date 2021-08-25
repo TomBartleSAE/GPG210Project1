@@ -1,21 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
+using TMPro;
 using UnityEngine;
 
-public class LobbyUI : MonoBehaviour
+public class LobbyUI : NetworkBehaviour
 {
-    public AsteroidNetworkManager asteroidNetworkManager;
-    
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    public AsteroidNetworkManager asteroidNetworkManager = null;
 
-    // Update is called once per frame
-    void Update()
+    public Transform userUIPanel;
+    public GameObject userUIGameObject;
+
+    public void UpdateUserPanel()
     {
-        
+        if (asteroidNetworkManager != null)
+        {
+            for (int i = 0; i < asteroidNetworkManager.lobbySlots.Count; i++)
+            {
+                GameObject go = Instantiate(userUIGameObject, userUIPanel);
+                go.GetComponentInChildren<TextMeshProUGUI>().text = asteroidNetworkManager.lobbySlots[i].name;
+            }
+        }
+
     }
 }
