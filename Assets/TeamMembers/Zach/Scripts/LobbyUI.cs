@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
@@ -9,8 +10,16 @@ public class LobbyUI : NetworkBehaviour
     [SerializeField]
     public AsteroidNetworkManager asteroidNetworkManager = null;
 
+    [SerializeField] public GameManager gameManager;
+
     public Transform userUIPanel;
     public GameObject userUIGameObject;
+
+    public override void OnStartServer()
+    {
+        base.OnStartServer();
+        gameManager.StartGameEvent += Disable;
+    }
 
     public void UpdateUserPanel()
     {
@@ -23,5 +32,10 @@ public class LobbyUI : NetworkBehaviour
             }
         }
 
+    }
+
+    public void Disable()
+    {
+        this.gameObject.SetActive(false);
     }
 }
