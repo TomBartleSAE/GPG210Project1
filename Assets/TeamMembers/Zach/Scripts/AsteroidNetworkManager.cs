@@ -18,7 +18,7 @@ public class AsteroidNetworkManager : NetworkManager
     public override void OnStartServer()
     {
         base.OnStartServer();
-        StartCoroutine(StartGameMode());
+        //StartCoroutine(StartGameMode());
         // startingGameEvent?.Invoke();
     }
 
@@ -53,6 +53,7 @@ public class AsteroidNetworkManager : NetworkManager
                 : Instantiate(playerPrefab);
             NetworkServer.ReplacePlayerForConnection(player, playerInstance, true);
         }
+        startingGameEvent?.Invoke();
     }
 
 
