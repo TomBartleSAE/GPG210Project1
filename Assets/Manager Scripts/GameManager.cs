@@ -1,13 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Mirror;
-using UnityEngine;
 
 public class GameManager : NetworkBehaviour
 {
-    public event Action StartGameEvent;
     public AsteroidNetworkManager asteroidNetworkManager;
+    public event Action StartGameEvent;
 
     public override void OnStartServer()
     {

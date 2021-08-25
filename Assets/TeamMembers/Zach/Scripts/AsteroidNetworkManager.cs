@@ -11,9 +11,9 @@ public class AsteroidNetworkManager : NetworkManager
     [Header("Lobby")] [SerializeField] public LobbyPlayer roomPlayerPrefab;
 
     public List<LobbyPlayer> lobbySlots = new List<LobbyPlayer>();
-    public event Action startingGameEvent;
 
     public LobbyUI lobbyUI;
+    public event Action startingGameEvent;
 
     public override void OnStartServer()
     {
@@ -53,6 +53,7 @@ public class AsteroidNetworkManager : NetworkManager
                 : Instantiate(playerPrefab);
             NetworkServer.ReplacePlayerForConnection(player, playerInstance, true);
         }
+
         startingGameEvent?.Invoke();
     }
 

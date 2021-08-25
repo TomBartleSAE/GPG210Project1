@@ -159,6 +159,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   asteroidNetworkManager: {fileID: 687493165}
+  gameManager: {fileID: 1159729408}
   userUIPanel: {fileID: 447618409}
   userUIGameObject: {fileID: 2609521286651751582, guid: 39d1e9c7b7ce0ca4882ae76dc854ae18, type: 3}
 --- !u!114 &304635319
