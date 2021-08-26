@@ -2002,7 +2002,7 @@ PrefabInstance:
     - target: {fileID: 8701850274970503318, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
       propertyPath: playerPrefab
       value: 
-      objectReference: {fileID: 4545368782067459426, guid: 884c14e394531644097a4c87c88b3370, type: 3}
+      objectReference: {fileID: 8928018182654549267, guid: ab5ae8cbb36309a4598026038d14940f, type: 3}
     - target: {fileID: 8701850274970503318, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
       propertyPath: autoCreatePlayer
       value: 0
@@ -2016,8 +2016,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8701850274970503318, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
+      propertyPath: playerAsteroidPrefab
+      value: 
+      objectReference: {fileID: 4545368782067459426, guid: 884c14e394531644097a4c87c88b3370, type: 3}
+    - target: {fileID: 8701850274970503318, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
       propertyPath: spawnPrefabs.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8701850274970503318, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
       propertyPath: spawnPrefabs.Array.data[0]
@@ -2035,6 +2039,10 @@ PrefabInstance:
       propertyPath: spawnPrefabs.Array.data[3]
       value: 
       objectReference: {fileID: 792759621431068195, guid: d3e6fc764a7409d45bea7e839ba1305d, type: 3}
+    - target: {fileID: 8701850274970503318, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
+      propertyPath: spawnPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 4545368782067459426, guid: 884c14e394531644097a4c87c88b3370, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28aa784aa0aa92b47b07d7e5fabab6e6, type: 3}
 --- !u!1 &2020745010
