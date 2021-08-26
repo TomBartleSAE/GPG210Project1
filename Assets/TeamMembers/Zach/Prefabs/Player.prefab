@@ -79,6 +79,8 @@ MonoBehaviour:
   playerIdentity: {fileID: 3918865778537157075}
   isShooting: 0
   timeForShoot: 0.2
+  pooledObjects: []
+  amountToPool: 20
 --- !u!114 &23510770788126706
 MonoBehaviour:
   m_ObjectHideFlags: 0

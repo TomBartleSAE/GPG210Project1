@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Pool;
 
 
 namespace Tim
@@ -14,7 +16,31 @@ namespace Tim
         public NetworkIdentity playerIdentity;
         public bool isShooting;
         public float timeForShoot = .2f;
-        
+        public List<GameObject> pooledObjects;
+        public int amountToPool;
+
+        public override void OnStartServer()
+        {
+            base.OnStartServer();
+            //pooledObjects = new List<GameObject>();
+            GameObject tmp;
+            for (int i = 0; i < amountToPool; i++)
+            {
+                CmdRequestShoot();
+            }
+        }
+
+        public GameObject GetPooledObject()
+        {
+            for (int i = 0; i < amountToPool; i++)
+            {
+                if (!pooledObjects[i].activeInHierarchy)
+                {
+                    return pooledObjects[i];
+                }
+            }
+            return null;
+        }
         void Update()
         {
             currentPos = transform.localPosition;
@@ -29,7 +55,6 @@ namespace Tim
                 //RpcShoot();
                 StartCoroutine(Firing());
             }
-            
         }
 
         IEnumerator Firing()
@@ -39,30 +64,32 @@ namespace Tim
                 isShooting = true;
                 if (isShooting == true)
                 {
-                    
                     yield return new WaitForSeconds(timeForShoot);
-                    CmdRequestShoot();
+                    //CmdRequestShoot();
+                    CmdShoot();
                     isShooting = false;
                 }
             }
-            
         }
-        
         [Command(requiresAuthority = true)]
         void CmdRequestShoot()
         {
             GameObject bulletInstantiate = Instantiate(bullet,currentPos,transform.rotation);
             bulletInstantiate.GetComponent<Bullet>().ownerIdentity = playerIdentity;
             NetworkServer.Spawn(bulletInstantiate);
-            //RpcShoot();
+            pooledObjects.Add(bulletInstantiate);
+            bulletInstantiate.SetActive(false);
         }
-
-        [ClientRpc]
-        void RpcShoot()
+        [Command(requiresAuthority = true)]
+        void CmdShoot()
         {
-            GameObject bulletInstantiate = Instantiate(bullet,currentPos,transform.rotation);
-            bulletInstantiate.GetComponent<Bullet>().ownerIdentity = playerIdentity;
-            NetworkServer.Spawn(bulletInstantiate);
+            GameObject bullet = GetPooledObject();
+            if (bullet != null)
+            {
+                bullet.transform.position = transform.position;
+                bullet.transform.rotation = transform.rotation;
+                bullet.SetActive(true);
+            }
         }
     }
 }

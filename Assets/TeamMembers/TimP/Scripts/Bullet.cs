@@ -27,7 +27,7 @@ namespace Tim
             dTimer = dTimer - Time.deltaTime;
             if (dTimer <= 0f)
             {
-                Destroy(gameObject);
+                gameObject.SetActive(false);
             }
         }
 
@@ -36,7 +36,7 @@ namespace Tim
             if (other.gameObject.CompareTag("Obstacle"))
             {
                 Debug.Log("Hit Asteroid");
-                Destroy(gameObject);
+                gameObject.SetActive(false);
                 if (other.GetComponent<Health>())
                 {
                     other.GetComponent<Health>().CallDamageEvent(1);
