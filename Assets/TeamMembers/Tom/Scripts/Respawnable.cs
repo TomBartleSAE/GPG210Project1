@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using Tom;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -24,6 +25,7 @@ public class Respawnable : MonoBehaviour
         else
         {
             // Destroy player
+            NetworkServer.Destroy(gameObject);
         }
     }
 
@@ -33,7 +35,7 @@ public class Respawnable : MonoBehaviour
         GetComponentInChildren<MeshRenderer>().enabled = false;
         yield return new WaitForSeconds(respawnTime);
         transform.position = new Vector3(Random.Range(-40f, 40f), 0, Random.Range(-40f, 40f));
-        health.SetInvincibility(2);
+        StartCoroutine(health.SetInvincibility(2f));
         health.health = default;
         GetComponent<Collider>().enabled = true;
         GetComponentInChildren<MeshRenderer>().enabled = true;
