@@ -16,7 +16,7 @@ namespace Tim
         public NetworkIdentity playerIdentity;
         public bool isShooting;
         public float timeForShoot = .2f;
-        public List<GameObject> pooledObjects;
+        public List<GameObject> pooledObjects = new List<GameObject>();
         public int amountToPool;
 
         public override void OnStartServer()
