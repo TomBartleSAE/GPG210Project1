@@ -71,7 +71,7 @@ namespace Tim
                 }
             }
         }
-        [Command(requiresAuthority = true)]
+        [Command(requiresAuthority = false)]
         void CmdRequestShoot()
         {
             GameObject bulletInstantiate = Instantiate(bullet,currentPos,transform.rotation);
@@ -80,7 +80,7 @@ namespace Tim
             pooledObjects.Add(bulletInstantiate);
             bulletInstantiate.SetActive(false);
         }
-        [Command(requiresAuthority = true)]
+        [Command(requiresAuthority = false)]
         void CmdShoot()
         {
             bullet = GetPooledObject();
