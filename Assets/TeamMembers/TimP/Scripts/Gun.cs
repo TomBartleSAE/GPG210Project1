@@ -26,7 +26,7 @@ namespace Tim
             GameObject tmp;
             for (int i = 0; i < amountToPool; i++)
             {
-                CmdRequestShoot();
+                RpcRequestShoot();
             }
         }
 
@@ -71,8 +71,8 @@ namespace Tim
                 }
             }
         }
-        [Command(requiresAuthority = true)]
-        void CmdRequestShoot()
+        [ClientRpc]
+        void RpcRequestShoot()
         {
             GameObject bulletInstantiate = Instantiate(bullet,currentPos,transform.rotation);
             bulletInstantiate.GetComponent<Bullet>().ownerIdentity = playerIdentity;
