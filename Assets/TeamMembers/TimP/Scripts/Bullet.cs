@@ -1,3 +1,4 @@
+using System;
 using Mirror;
 using Tom;
 using UnityEngine;
@@ -17,9 +18,21 @@ namespace Tim
         private void Start()
         {
             rb = GetComponent<Rigidbody>();
-            rb.AddRelativeForce(new Vector3(0, 0, 5), ForceMode.Impulse);
             sm = FindObjectOfType<ScoreManager>();
         }
+
+        public void OnEnable()
+        {
+            rb.AddRelativeForce(new Vector3(0, 0, 5), ForceMode.Impulse);
+            Debug.Log(rb.velocity);
+        }
+
+        public void OnDisable()
+        {
+            dTimer = 4f;
+            rb.velocity = Vector3.zero;
+        }
+
 
         // Update is called once per frame
         private void FixedUpdate()
